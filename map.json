@@ -1,11 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "the population per state, engineers per state, and hurricanes per state",
-  "title": "House water per capita 2008-2017",
+ 
+  "title": "House water per capita in 2008-2017",
   "width": 500,
   "height": 500,
   "data": {
-    "url": "urb_019_housewaterpercapita.csv"
+    "url": "https://raw.githubusercontent.com/xshi0035/xshi0035/refs/heads/main/urb_019_housewaterpercapita.csv"
   },
   "params": [
     {
@@ -50,7 +50,7 @@
       "lookup": "Entity",
       "from": {
         "data": {
-          "url": "australian-states.topojson.json",
+          "url": "https://raw.githubusercontent.com/xshi0035/xshi0035/refs/heads/main/australian-states.topojson.json",
           "format": {
             "type": "topojson",
             "feature": "australian-states"
