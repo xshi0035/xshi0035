@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "the population per state, engineers per state, and hurricanes per state",
-  "title": "House water per capita in 2016/17",
+  "title": "House water per capita 2008-2017",
   "width": 500,
   "height": 500,
   "data": {
