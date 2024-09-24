@@ -75,7 +75,8 @@
     "tooltip": [
       {
         "field": "Entity",
-        "type": "nominal"
+        "type": "nominal",
+        "title":"State"
       },
       {
         "field": "value",
