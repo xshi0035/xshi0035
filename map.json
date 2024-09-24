@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "the population per state, engineers per state, and hurricanes per state",
+  "title": "House water per capita in 2016/17",
+  "width": 500,
+  "height": 500,
+  "data": {
+    "url": "urb_019_housewaterpercapita.csv"
+  },
+  "params": [
+    {
+      "name": "Dates",
+      "select": { "type": "point", "fields": ["Dates"] },
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "2008/09",
+          "2009/10",
+          "2010/11",
+          "2011/12",
+          "2012/13",
+          "2013/14",
+          "2014/15",
+          "2015/16",
+          "2016/17"
+        ]
+      }
+    }
+  ],
+  "transform": [
+    {
+      "fold": [
+        "New South Wales",
+        "Victoria",
+        "Queensland",
+        "South Australia",
+        "Western Australia",
+        "Tasmania",
+        "Northern Territory",
+        "Australian Capital Territory"
+      ],
+      "as": ["Entity", "value"]
+    },
+    {
+      "filter": { "param": "Dates" }
+    },
+  
+    {
+      "lookup": "Entity",
+      "from": {
+        "data": {
+          "url": "australian-states.topojson.json",
+          "format": {
+            "type": "topojson",
+            "feature": "australian-states"
+          }
+        },
+        "key": "properties.STATE_NAME"
+      },
+      "as": "geo"
+    }
+  ],
+  "projection": { "type": "mercator" },
+  "mark": "geoshape",
+  "encoding": {
+    "shape": {
+      "field": "geo",
+      "type": "geojson"
+    },
+    "color": {
+      "field": "value",
+      "type": "quantitative"
+    },
+    "tooltip": [
+      {
+        "field": "Entity",
+        "type": "nominal"
+      },
+      {
+        "field": "value",
+        "type": "quantitative"
+      }
+    ]
+  }
+}
