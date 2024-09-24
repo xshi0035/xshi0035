@@ -80,7 +80,8 @@
       },
       {
         "field": "value",
-        "type": "quantitative"
+        "type": "quantitative",
+        "title":"House water per capita(kL)"
       }
     ]
   }
